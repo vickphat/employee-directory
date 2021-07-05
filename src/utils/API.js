@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const getUsers = () => {
-    return axios.get("https://randomuser.me/api/")
+const getEmployees = () => {
+    return axios.get("https://randomuser.me/api/?results=50&nat=us")
+    
 };
 
-export default getUsers();
+export default getEmployees();
