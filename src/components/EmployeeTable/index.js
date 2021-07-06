@@ -5,12 +5,20 @@ const EmployeeTable = (props) => {
         <table className="table table-striped table-sortable text-center">
             <thead>
                 <tr>
-                    <th scope="col">Profile</th>
-                    <th scope="col">Name</th>
+                    <th scope="col"></th>
+                    <th scope="col">
+                        {/* Sorts employees in alphabetical order by first name */}
+                        <span onClick={() => props.sortBy("name", "first", "last")}>
+                            Name
+                        </span></th>
                     <th scope="col">Email</th>
-                    <th scope="col">Location</th>
+                    <th scope="col">
+                        {/* Sorts employees in alphabetical order by state */}
+                    <span onClick={() => props.sortBy("location", "state", "city")}>
+                            Location
+                        </span>
+                    </th>
                     <th scope="col">Phone</th>
-                    <th scope="col">Age</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,10 +46,6 @@ const EmployeeTable = (props) => {
                             <td className="align-middle">
                                 <span>{employee.phone}</span>
                             </td>
-                            <td className="align-middle">
-                                <span>{employee.dob.age}</span>
-                            </td>
-
                         </tr>
                     );
                 })}

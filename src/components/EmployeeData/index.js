@@ -17,6 +17,7 @@ class EmployeesData extends Component {
             email: "",
             location: "",
             phone: "",
+            age: ""
             
         };
     }
