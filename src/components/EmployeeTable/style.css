@@ -3,6 +3,10 @@
     cursor: pointer;
 }
 
+.sort:active {
+    background-color: red;
+}
+
 .icon {
     font-size: 130%;
 }

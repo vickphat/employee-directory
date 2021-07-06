@@ -20,10 +20,11 @@ const EmployeeTable = (props) => {
                         </span>
                     </th>
                     <th scope="col">Phone</th>
+                    <th scope="col">Age</th>
                 </tr>
             </thead>
             <tbody>
-                {props.state.filteredEmployees.map((employee) => {
+                {props.state.employees.map((employee) => {
 
                     const { first, last } = employee.name;
                     const name = `${first} ${last}`;
@@ -35,7 +36,7 @@ const EmployeeTable = (props) => {
                     return (
                         <tr key={employee.login.uuid}>
                             <td>
-                                <img src={employee.picture.medium} alt={name} />
+                                <img src={employee.picture.large} alt={name} />
                             </td>
                             <td className="align-middle">{name}</td>
                             <td className="align-middle">
@@ -46,6 +47,9 @@ const EmployeeTable = (props) => {
                             </td>
                             <td className="align-middle">
                                 <span>{employee.phone}</span>
+                            </td>
+                            <td className="align-middle">
+                                <span>{employee.dob.age}</span>
                             </td>
                         </tr>
                     );
