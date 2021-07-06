@@ -2,7 +2,7 @@ import React from 'react';
 
 const EmployeeTable = (props) => {
     return (
-        <table className="table">
+        <table className="table table-striped table-sortable text-center">
   <thead>
     <tr>
       <th scope="col">Profile</th>
@@ -14,9 +14,21 @@ const EmployeeTable = (props) => {
   </thead>
   <tbody>
   {props.state.filteredEmployees.map((employee) => {
+
+          const { first, last } = employee.name;
+          const name = `${first} ${last}`;
         
-    console.log(employee);
+          console.log(employee);
     
+    return (
+            <tr key={employee.login.uuid}>
+              <td>
+                <img src={employee.picture.medium} alt={name} />
+              </td>
+              <td className="align-middle">{name}</td>
+              
+            </tr>
+          );
         })}
       </tbody>
     </table>
