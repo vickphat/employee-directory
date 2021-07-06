@@ -1,0 +1,8 @@
+.sort:hover {
+    background-color: red;
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 130%;
+}

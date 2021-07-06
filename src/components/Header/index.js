@@ -8,6 +8,9 @@ const header = () => {
             <p>
                 This is the employee directory page!
             </p>
+            <p>
+                Click on the filter icon to sort by name or location!
+            </p>
         </div>
 
 

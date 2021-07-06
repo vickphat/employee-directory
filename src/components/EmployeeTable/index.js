@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css'
 
 const EmployeeTable = (props) => {
     return (
@@ -9,13 +10,13 @@ const EmployeeTable = (props) => {
                     <th scope="col">
                         {/* Sorts employees in alphabetical order by first name */}
                         <span onClick={() => props.sortBy("name", "first", "last")}>
-                            Name
+                            Name <i class="bi bi-filter sort icon"></i>
                         </span></th>
                     <th scope="col">Email</th>
                     <th scope="col">
                         {/* Sorts employees in alphabetical order by state */}
                     <span onClick={() => props.sortBy("location", "state", "city")}>
-                            Location
+                            Location <i class="bi bi-filter sort icon"></i>
                         </span>
                     </th>
                     <th scope="col">Phone</th>
