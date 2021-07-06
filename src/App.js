@@ -1,16 +1,15 @@
 import React from 'react'
 import Header from './components/Header';
+import EmployeesData from './components/EmployeeData';
 import EmployeeTable from './components/EmployeeTable';
-import API from '../src/utils/API';
-
 
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <EmployeeTable />
-      
+      <EmployeesData />
+
     </div>
   );
 }
