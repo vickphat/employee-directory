@@ -10,13 +10,13 @@ const EmployeeTable = (props) => {
                     <th scope="col">
                         {/* Sorts employees in alphabetical order by first name */}
                         <span onClick={() => props.sortBy("name", "first", "last")}>
-                            Name <i class="bi bi-filter sort icon"></i>
+                            Name <i className="bi bi-filter sort icon"></i>
                         </span></th>
                     <th scope="col">Email</th>
                     <th scope="col">
                         {/* Sorts employees in alphabetical order by state */}
                     <span onClick={() => props.sortBy("location", "state", "city")}>
-                            Location <i class="bi bi-filter sort icon"></i>
+                            Location <i className="bi bi-filter sort icon"></i>
                         </span>
                     </th>
                     <th scope="col">Phone</th>

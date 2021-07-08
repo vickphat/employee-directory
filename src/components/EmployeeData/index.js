@@ -5,14 +5,12 @@ import API from '../../utils/API'
 class EmployeesData extends Component {
 
     state = {
-        
-        search: "",
         employees: [],
         filteredEmployees: [],
-        sortDirections: this.sortDirections,
+        sortDirections: this.startDirections,
     };
 
-    get sortDirections() {
+    get startDirections() {
 
         return {
             name: "",
@@ -20,8 +18,7 @@ class EmployeesData extends Component {
             location: "",
             phone: "",
             age: "",
-            delete: ""
-            
+
         };
     }
 
@@ -38,10 +35,6 @@ class EmployeesData extends Component {
             .catch((err) => console.log(err));
     }
 
-    handleFormSubmit = (event) => {
-        event.preventDefault();
-    };
-
     // Sort with the employee UUID 
     sortBy = (key, primary = 0, secondary = 0) => {
 
@@ -50,11 +43,11 @@ class EmployeesData extends Component {
             this.setState({
                 filteredEmployees: sortedEmployees.reverse(),
                 sortDirections: {
-                    ...this.sortDirections,
+                    ...this.startDirections,
                     [key]: this.state.sortDirections[key] === "asc" ? "desc" : "asc",
                 },
             });
-        } 
+        }
         else {
             sortedEmployees = this.state.filteredEmployees.sort((a, b) => {
                 a = a[key];
@@ -74,12 +67,33 @@ class EmployeesData extends Component {
             this.setState({
                 filteredEmployees: sortedEmployees,
                 sortDirections: {
-                    ...this.sortDirections,
+                    ...this.startDirections,
                     [key]: "asc",
                 },
             });
         }
     };
+
+    filterEmployees = (input) => {
+        if (input) {
+            this.setState({
+                filteredEmployees: this.state.employees.filter((employee) => {
+                    return (
+                        employee.name.first
+                            .toLowerCase()
+                            .concat(" ", employee.name.last.toLowerCase())
+                            .includes(input) ||
+                        employee.phone.includes(input) ||
+                        employee.phone.replace(/[^\w\s]/gi, "").includes(input) ||
+                        employee.email.includes(input)
+                    );
+                }),
+            });
+        } else {
+            this.setState({ filteredEmployees: this.state.employees });
+        }
+    };
+    
 
     render() {
         return (
@@ -87,7 +101,7 @@ class EmployeesData extends Component {
                 <div className="container mt-4">
                     <EmployeeTable
                         state={this.state}
-                        sortBy={this.sortBy}   
+                        sortBy={this.sortBy}
                     />
                 </div>
             </>
