@@ -35,6 +35,9 @@ It will show the following:
 
 There is also an icon button to the right of "Name" and "Location". If the icon is clicked, the employees will be filtered by either their first name or by the state. The search bar above the table can also be used to search for individual employees. Typing in either their name, email or phone number will render only them on the table. 
 
+The folowing link is to the deployed application:
+https://vickphat.github.io/employee-directory/
+
 
 ## Installation:
 
