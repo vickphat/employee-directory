@@ -1,4 +1,4 @@
-# Workout Tracker
+# Employee Directory
 
 ![LICENSE](https://img.shields.io/badge/License-[MIT]-blue?style=for-the-badge&logo=appveyor.svg)
 
