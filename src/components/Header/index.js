@@ -9,6 +9,9 @@ const header = () => {
             <p>
                 Click on the filter icon to sort by name or location!
             </p>
+            <p>
+                Type name, email or phone number into searchbar to find individual employee
+            </p>
         </div>
 
 

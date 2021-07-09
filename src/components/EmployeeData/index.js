@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import EmployeeTable from "../EmployeeTable";
+import SearchBar from "../SearchBar";
 import API from '../../utils/API'
 
 class EmployeesData extends Component {
@@ -7,6 +8,7 @@ class EmployeesData extends Component {
     state = {
         employees: [],
         filteredEmployees: [],
+        search: "",
         sortDirections: this.startDirections,
     };
 
@@ -74,6 +76,7 @@ class EmployeesData extends Component {
         }
     };
 
+    // filter employees by name, email or phone in searchbar
     filterEmployees = (input) => {
         if (input) {
             this.setState({
@@ -93,11 +96,26 @@ class EmployeesData extends Component {
             this.setState({ filteredEmployees: this.state.employees });
         }
     };
-    
+
+    // Updates table when name, email or phone number is typed in
+    handleInputChange = (event) => {
+        const value = event.target.value;
+        this.setState({ search: value });
+        this.filterEmployees(value.toLowerCase().trim());
+    };
+
+    handleFormSubmit = (event) => {
+        event.preventDefault();
+    };
 
     render() {
         return (
             <>
+                <SearchBar
+                    value={this.state.search}
+                    handleInputChange={this.handleInputChange}
+                    handleFormSubmit={this.handleFormSubmit}
+                />
                 <div className="container mt-4">
                     <EmployeeTable
                         state={this.state}

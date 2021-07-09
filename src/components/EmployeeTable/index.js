@@ -24,14 +24,14 @@ const EmployeeTable = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {props.state.employees.map((employee) => {
+                {props.state.filteredEmployees.map((employee) => {
 
                     const { first, last } = employee.name;
                     const name = `${first} ${last}`;
                     const { city, state } = employee.location
                     const location = `${city}, ${state}`
 
-                    console.log(employee);
+                    // console.log(employee);
 
                     return (
                         <tr key={employee.login.uuid}>
